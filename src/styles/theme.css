@@ -1,34 +1,142 @@
 /*
-  theme.css -- your theme overrides. This is the file to edit to
-  retheme the site.
-
-  Every design token lives in src/styles/tokens.css (colors, type
-  scale, spacing, layout, shadows) with its default value. Override any
-  of them here: declarations in this file are unlayered, so they always
-  beat the @layer base defaults in tokens.css.
-
-  Colors are defined with light-dark(). Overriding with a plain color
-  changes light and dark mode at once; use light-dark(<light>, <dark>)
-  to set different values per mode.
-
-  Set the three brand tokens together, as in the example below:
-  --color-on-brand defaults to near-black in dark mode.
-
-  Webfonts are loaded in astro.config.mjs (--font-body, --font-mono).
-  Swap the loaded font there; use overrides here for system fonts or a
-  separate heading face.
-
-  Example:
-
-  :root {
-    --color-brand: light-dark(#0f766e, #2dd4bf);
-    --color-brand-hover: light-dark(#115e59, #5eead4);
-    --color-on-brand: light-dark(#ffffff, #0a0a0a);
-    --font-heading: "Iowan Old Style", Georgia, serif;
-    --radius-lg: 18px;
-    --radius-xl: 24px;
-  }
+  theme.css -- 堀上舞 公式サイト（強化版 v2、2026-11-16 準備）
+  見本ページ（黄色・紺色基調）に近づけるため、色トークンに加えて
+  ヘッダー／トップ帯／フッター／見出しの色付けまで同じファイル内で行う。
+  変更はこのファイル1つだけ。履歴でいつでも v1・初期状態に戻せる。
 */
 
 :root {
+	/* 色トークン（v1と同じ考え方＋枠線・面の色を追加） */
+	--color-brand: light-dark(#1d3a6e, #ffd94d);
+	--color-brand-hover: light-dark(#2a4d8f, #ffe27a);
+	--color-on-brand: light-dark(#ffffff, #1a2a4a);
+	--color-bg: light-dark(#fffdf6, #0a0a0a);
+	--color-surface: light-dark(#ffffff, #141414);
+	--color-fill: light-dark(#fdf3c4, #2e3350);
+	--color-fill-strong: light-dark(#fbe89a, #3d4468);
+	--color-border: light-dark(#e7d98f, #262626);
+	--color-border-strong: light-dark(#c9a227, #3a3a3a);
+	--color-ring: light-dark(rgb(29 58 110 / 0.14), rgb(255 255 255 / 0.09));
+	--color-text: light-dark(#1c2739, #ededed);
+	--color-text-secondary: light-dark(#3d4a63, #a3a3a3);
+}
+
+/* ヘッダー：紺色の帯＋下端に黄色の線（見本の上の帯に相当） */
+.site-header {
+	background: #1d3a6e !important;
+	border-bottom: 4px solid #ffd94d !important;
+	backdrop-filter: none !important;
+	-webkit-backdrop-filter: none !important;
+}
+.site-header .brand,
+.site-header .brand__name {
+	color: #ffffff !important;
+}
+.site-header .brand__mark {
+	background: #ffd94d !important;
+	color: #1d3a6e !important;
+}
+.site-header .site-nav a {
+	color: #e8ecf5 !important;
+}
+.site-header .site-nav a:hover {
+	background: #2a4d8f !important;
+	color: #ffffff !important;
+}
+.site-header .site-nav a[aria-current] {
+	background: #ffd94d !important;
+	color: #1d3a6e !important;
+	box-shadow: none !important;
+}
+.site-header .icon-btn {
+	background: transparent !important;
+	color: #ffffff !important;
+	box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.45) !important;
+}
+
+/* トップのあいさつ帯（.intro）：紺地に白い題字＋黄色のタグライン */
+.intro {
+	background: #1d3a6e !important;
+}
+.intro .intro__title,
+.intro h1 {
+	color: #ffffff !important;
+}
+.intro .intro__subtitle {
+	color: #ffd94d !important;
+}
+.intro .eyebrow {
+	color: #fbe89a !important;
+}
+.intro .intro__lead {
+	color: #e8ecf5 !important;
+}
+.intro .arrow-link {
+	color: #fbe89a !important;
+}
+.intro .btn--ghost {
+	background: #ffd94d !important;
+	color: #1d3a6e !important;
+	box-shadow: none !important;
+}
+
+/* セクションの交互の地色（白／淡い黄）で見本の区切り感を出す */
+main > .band.section:nth-child(even) {
+	background: light-dark(#fff8d6, #101322);
+}
+
+/* フッター：紺地に白文字、見出しは黄色 */
+.site-footer {
+	background: #16294d !important;
+	color: #e8ecf5 !important;
+}
+.site-footer .brand,
+.site-footer .brand__name,
+.site-footer a {
+	color: #e8ecf5 !important;
+}
+.site-footer .brand__mark {
+	background: #ffd94d !important;
+	color: #1d3a6e !important;
+}
+.site-footer .eyebrow,
+.site-footer .site-footer__tagline,
+.site-footer .site-footer__meta {
+	color: #fbe89a !important;
+}
+.site-footer .site-footer__meta a {
+	color: #e8ecf5 !important;
+}
+
+/* ページ題字と見出し：紺色＋黄色の下線 */
+.page__title,
+.section-head__title {
+	color: light-dark(#1d3a6e, #ffd94d);
+}
+.page__title {
+	border-bottom: 5px solid #ffd94d;
+	padding-bottom: 0.35em;
+}
+
+/* 本文の見出し（政策ページ等）：淡い黄の帯＋紺の左線でカード風に */
+.prose h2 {
+	background: light-dark(#fdf3c4, #2e3350) !important;
+	color: light-dark(#1d3a6e, #ffe27a) !important;
+	border-left: 6px solid light-dark(#1d3a6e, #ffd94d);
+	border-radius: 8px;
+	padding: 0.45em 0.7em;
+}
+.prose h3 {
+	color: light-dark(#1d3a6e, #ffd94d);
+}
+
+/* 記事カード：上端に黄色のアクセント */
+.post--card,
+.post--feature {
+	border-top: 5px solid #ffd94d;
+}
+
+/* タグチップ：淡い黄地 */
+.chip {
+	background: light-dark(#fdf3c4, #2e3350) !important;
 }
