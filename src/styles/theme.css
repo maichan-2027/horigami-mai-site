@@ -146,3 +146,28 @@ main > .band.section:nth-child(even) {
   font-size: 1.5rem !important;
   line-height: 1.45 !important;
 }
+
+/* お問い合わせ：連絡先リンクをボタン風に（2026-11-17 追加、候補者意向） */
+.prose a[href^="mailto:"],
+.prose a[href*="x.com"],
+.prose a[href*="instagram.com"],
+.prose a[href*="facebook.com"] {
+  display: inline-block !important;
+  padding: 0.55em 1.5em !important;
+  border-radius: 999px !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+.prose a[href^="mailto:"] {
+  background: #1d3a6e !important;
+}
+.prose a[href*="x.com"] {
+  background: #000000 !important;
+}
+.prose a[href*="instagram.com"] {
+  background: #e1306c !important;
+}
+.prose a[href*="facebook.com"] {
+  background: #1877f2 !important;
+}
