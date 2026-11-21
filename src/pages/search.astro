@@ -40,8 +40,8 @@ const rows = results.map((result) => {
 });
 
 const countLabel = nextCursor
-	? `上位 ${rows.length}件
-	: `${rows.length}件
+	? `上位${rows.length}件`
+	: `${rows.length}件`;
 ---
 
 <Base
@@ -50,8 +50,8 @@ const countLabel = nextCursor
 >
 	<header class="band intro">
 		<div class="frame">
-			検索
-			<h1 class="intro__title">何をお探しですか?</h1>
+			<p class="eyebrow">検索</p>
+			<h1 class="intro__title">何をお探しですか？</h1>
 			<form
 				method="get"
 				action="/search"
@@ -59,7 +59,7 @@ const countLabel = nextCursor
 				aria-label="活動報告"
 				class="search-form"
 			>
-				<label for="search-query" class="sr-only">活動報告を検索
+				<label for="search-query" class="sr-only">活動報告を検索</label>
 				<div class="search-field">
 					<svg
 						class="search-field__icon"
@@ -82,7 +82,7 @@ const countLabel = nextCursor
 						placeholder="活動報告を検索"
 						autofocus={!query}
 					/>
-					<button type="submit" class="btn search-field__submit"検索
+					<button type="submit" class="btn search-field__submit">検索</button>
 				</div>
 			</form>
 			{
@@ -91,7 +91,7 @@ const countLabel = nextCursor
 						記事のタイトルと本文から検索します。どこから見ればよいか迷ったら{" "}
 					<a href="/posts">活動報告をすべて見る</a>。
 				</p>
-			}
+			)}
 		</div>
 	</header>
 
