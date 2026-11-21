@@ -49,17 +49,17 @@ const postsWithTags = posts.map((post) => ({
 				posts.length === 0 ? (
 					<div class="empty-state">
 						<h2 class="empty-state__title">
-							{cursor ? "No more posts" : "No posts yet"}
+							{cursor ? "これ以上記事はありません" : "まだ記事がありません"}
 						</h2>
 						<p class="empty-state__text">
 							{cursor
-								? "You have reached the end of the archive."
-								: "Published posts will show up here."}
+								? "記事は以上です。"
+								: "公開された記事がここに表示されます。"
 						</p>
 						{cursor && (
 							<div class="empty-state__actions">
 								<a href="/posts" class="btn btn--ghost">
-									First page
+									最初のページへ
 								</a>
 							</div>
 						)}
