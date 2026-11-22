@@ -16,7 +16,7 @@
 			"bucket_name": "my-emdash-media","preview_bucket_name": "my-emdash-media",
 		},
 	],
-　　"send_email": [
+	"send_email": [
 	{
 		"name": "EMAIL"
 	}
